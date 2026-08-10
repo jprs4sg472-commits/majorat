@@ -30,7 +30,7 @@ async function submitRSVP(e){
 
   if(!name || !attendance) return;
 
-  if(RSVP_ENDPOINT === "PASTEAZA_AICI_URLUL_GOOGLE_APPS_SCRIPT"){
+  if(RSVP_ENDPOINT === "https://script.google.com/macros/s/AKfycbxfCDRtruPz5o5D3pEmB1iZjya_Cv7_kFIj5oywHEG2gYJmjkKwXCI-0B8d3rpMXoC0/exec"){
     message.textContent = "Formularul nu este conectat Ã®ncÄƒ. AdaugÄƒ URL-ul Google Apps Script Ã®n script.js.";
     return;
   }
