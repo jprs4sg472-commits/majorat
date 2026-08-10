@@ -2,7 +2,7 @@
   IMPORTANT:
   DupÄƒ ce creezi Google Apps Script-ul, lipeÈ™te aici URL-ul lui Web App.
 */
-const RSVP_ENDPOINT = "PASTEAZA_AICI_URLUL_GOOGLE_APPS_SCRIPT";
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxfCDRtruPz5o5D3pEmB1iZjya_Cv7_kFIj5oywHEG2gYJmjkKwXCI-0B8d3rpMXoC0/exec";
 
 const target = new Date("2026-08-29T20:00:00+03:00").getTime();
 
