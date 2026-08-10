@@ -1,62 +1,13 @@
-/*
-  IMPORTANT:
-  DupÄƒ ce creezi Google Apps Script-ul, lipeÈ™te aici URL-ul lui Web App.
-*/
-const RSVP_ENDPOINT = "https://docs.google.com/spreadsheets/d/16k392NZeTtHNU6lNf_a3UppBjCqGT_qeXwIla_WmwOs/edit?pli=1&gid=0#gid=0";
-
-const target = new Date("2026-08-29T20:00:00+03:00").getTime();
-
-function updateCountdown(){
-  let diff=Math.max(0,target-Date.now());
-  const d=Math.floor(diff/86400000); diff%=86400000;
-  const h=Math.floor(diff/3600000); diff%=3600000;
-  const m=Math.floor(diff/60000); diff%=60000;
-  const s=Math.floor(diff/1000);
-  document.getElementById("days").textContent=String(d).padStart(2,"0");
-  document.getElementById("hours").textContent=String(h).padStart(2,"0");
-  document.getElementById("minutes").textContent=String(m).padStart(2,"0");
-  document.getElementById("seconds").textContent=String(s).padStart(2,"0");
-}
-updateCountdown();
-setInterval(updateCountdown,1000);
-
-async function submitRSVP(e){
-  e.preventDefault();
-
-  const name = document.getElementById("guestName").value.trim();
-  const attendance = document.getElementById("attendance").value;
-  const message = document.getElementById("formMessage");
-  const button = document.getElementById("submitBtn");
-
-  if(!name || !attendance) return;
-
-  if(RSVP_ENDPOINT === "https://script.google.com/macros/s/AKfycbxfCDRtruPz5o5D3pEmB1iZjya_Cv7_kFIj5oywHEG2gYJmjkKwXCI-0B8d3rpMXoC0/exec"){
-    message.textContent = "Formularul nu este conectat Ã®ncÄƒ. AdaugÄƒ URL-ul Google Apps Script Ã®n script.js.";
-    return;
-  }
-
-  button.disabled = true;
-  button.textContent = "SE TRIMITE...";
-
-  const data = new URLSearchParams();
-  data.append("name", name);
-  data.append("attendance", attendance);
-  data.append("timestamp", new Date().toLocaleString("ro-RO"));
-
-  try {
-    await fetch(RSVP_ENDPOINT, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
-      body: data.toString()
-    });
-
-    message.textContent = "MulÈ›umesc! Confirmarea ta a fost Ã®nregistratÄƒ. ðŸ¥‚";
-    document.getElementById("rsvpForm").reset();
-  } catch(error) {
-    message.textContent = "A apÄƒrut o problemÄƒ. Te rog Ã®ncearcÄƒ din nou.";
-  } finally {
-    button.disabled = false;
-    button.textContent = "CONFIRMÄ‚ PREZENÈšA";
-  }
-}
+const RSVP_ENDPOINT='https://script.google.com/macros/s/AKfycbxfCDRtruPz5o5D3pEmB1iZjya_Cv7_kFIj5oywHEG2gYJmjkKwXCI-0B8d3rpMXoC0/exec';
+const target=new Date("2026-08-29T20:00:00+03:00").getTime();
+function tick(){let x=Math.max(0,target-Date.now()),d=Math.floor(x/86400000);x%=86400000;let h=Math.floor(x/3600000);
+x%=3600000;let m=Math.floor(x/60000);x%=60000;let s=Math.floor(x/1000);days.textContent=String(d).padStart(2,"0");hours.textContent=String(h).padStart(2,"0");minutes.textContent=String(m).padStart(2,"0");seconds.textContent=String(s).padStart(2,"0")}tick();setInterval(tick,1000);
+document.getElementById("rsvpForm").addEventListener("submit",async e=>{e.preventDefault();
+let btn=document.getElementById("submitBtn"),msg=document.getElementById("msg"),data=new URLSearchParams();
+data.set("name",document.getElementById("guestName").value.trim());
+data.set("attendance",document.getElementById("attendance").value);
+data.set("timestamp",new Date().toLocaleString("ro-RO"));
+btn.disabled=true;btn.textContent="SE TRIMITE...";
+try{await fetch(RSVP_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:data.toString()});
+msg.textContent="Multumesc! Confirmarea ta a fost inregistrata. ðŸ¥‚";
+e.target.reset()}catch(err){msg.textContent="A aparut o problema. Verifica publicarea Google Apps Script si incearca din nou."}finally{btn.disabled=false;btn.textContent="CONFIRMÄ‚ PREZENÈšA"}});
