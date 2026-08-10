@@ -18,7 +18,7 @@
   <div class="hero-content">
     <p class="eyebrow">SAVE THE DATE</p>
     <div class="number">18</div>
-    <p class="name">VASILE</p>
+    <p class="name">CATALIN</p>
     <div class="gold-line"></div>
     <p class="date">29 AUGUST 2026</p>
     <button class="open-btn" onclick="document.querySelector('#invitation').scrollIntoView({behavior:'smooth'})">
@@ -33,7 +33,7 @@
     <img src="poza-mea.jpg" alt="Vasile">
   </div>
   <div class="photo-caption">
-    <p class="eyebrow">THE BIRTHDAY BOY</p>
+    <p class="eyebrow">DESPRE SĂRBĂTORIT</p>
     <h1>18 ani.<br><em>Un nou capitol.</em></h1>
   </div>
 </section>
@@ -82,23 +82,23 @@
   <p class="eyebrow">RSVP</p>
   <h2>Vii să sărbătorim?</h2>
   <p class="lead">Confirmă-ți prezența și hai să facem seara asta memorabilă.</p>
-  <form onsubmit="submitRSVP(event)">
-    <input id="guestName" type="text" placeholder="Numele tău" required>
+  <form id="rsvpForm" onsubmit="submitRSVP(event)">
+    <input id="guestName" type="text" placeholder="Numele tău" autocomplete="name" required>
     <select id="attendance" required>
       <option value="" disabled selected>Alege o opțiune</option>
-      <option>Da, abia aștept!</option>
-      <option>Din păcate, nu pot ajunge</option>
+      <option value="Da, abia aștept!">Da, abia aștept!</option>
+      <option value="Din păcate, nu pot ajunge">Din păcate, nu pot ajunge</option>
     </select>
-    <button class="gold-btn" type="submit">CONFIRMĂ PREZENȚA</button>
+    <button class="gold-btn" id="submitBtn" type="submit">CONFIRMĂ PREZENȚA</button>
   </form>
   <p id="formMessage" class="form-message"></p>
-  <p class="small form-note">Formularul poate fi conectat ulterior la Google Forms/Sheets pentru confirmări reale.</p>
+  <p class="small form-note">Răspunsul tău este înregistrat automat.</p>
 </section>
 </main>
 
 <footer>
   <div class="number footer-number">18</div>
-  <p>VASILE</p>
+  <p>CATALIN</p>
   <span>29.08.2026 · A NIGHT TO REMEMBER</span>
 </footer>
 <script src="script.js"></script>
