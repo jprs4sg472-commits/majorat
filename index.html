@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasile — 18 | 29 August 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="noise"></div>
+
+<section class="hero">
+  <div class="hero-image"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="eyebrow">SAVE THE DATE</p>
+    <div class="number">18</div>
+    <p class="name">VASILE</p>
+    <div class="gold-line"></div>
+    <p class="date">29 AUGUST 2026</p>
+    <button class="open-btn" onclick="document.querySelector('#invitation').scrollIntoView({behavior:'smooth'})">
+      DESCHIDE INVITAȚIA <span>↓</span>
+    </button>
+  </div>
+</section>
+
+<main id="invitation">
+<section class="photo-section section">
+  <div class="portrait">
+    <img src="poza-mea.jpg" alt="Vasile">
+  </div>
+  <div class="photo-caption">
+    <p class="eyebrow">THE BIRTHDAY BOY</p>
+    <h1>18 ani.<br><em>Un nou capitol.</em></h1>
+  </div>
+</section>
+
+<section class="intro section">
+  <p class="eyebrow">THE CELEBRATION</p>
+  <h1>O seară de<br><em>neuitat.</em></h1>
+  <p class="lead">
+    După 18 ani de povești, oameni dragi și amintiri,
+    a venit momentul să sărbătorim împreună.
+  </p>
+  <p class="small">Te aștept să facem din seara asta o amintire de neuitat.</p>
+</section>
+
+<section class="countdown section">
+  <p class="eyebrow">COUNTDOWN</p>
+  <h2>Ne vedem în</h2>
+  <div class="timer">
+    <div><strong id="days">--</strong><span>ZILE</span></div>
+    <div><strong id="hours">--</strong><span>ORE</span></div>
+    <div><strong id="minutes">--</strong><span>MIN</span></div>
+    <div><strong id="seconds">--</strong><span>SEC</span></div>
+  </div>
+</section>
+
+<section class="details section">
+  <div class="detail-card">
+    <span class="icon">✦</span>
+    <p class="eyebrow">DATA</p>
+    <h3>29 August 2026</h3>
+  </div>
+  <div class="detail-card">
+    <span class="icon">◷</span>
+    <p class="eyebrow">ORA</p>
+    <h3>20:00</h3>
+  </div>
+  <div class="detail-card">
+    <span class="icon">⌖</span>
+    <p class="eyebrow">LOCAȚIA</p>
+    <h3>Strada Liliacului nr. 5</h3>
+    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Strada+Liliacului+nr+5" target="_blank" rel="noopener">DESCHIDE ÎN GOOGLE MAPS →</a>
+  </div>
+</section>
+
+<section class="rsvp section">
+  <p class="eyebrow">RSVP</p>
+  <h2>Vii să sărbătorim?</h2>
+  <p class="lead">Confirmă-ți prezența și hai să facem seara asta memorabilă.</p>
+  <form onsubmit="submitRSVP(event)">
+    <input id="guestName" type="text" placeholder="Numele tău" required>
+    <select id="attendance" required>
+      <option value="" disabled selected>Alege o opțiune</option>
+      <option>Da, abia aștept!</option>
+      <option>Din păcate, nu pot ajunge</option>
+    </select>
+    <button class="gold-btn" type="submit">CONFIRMĂ PREZENȚA</button>
+  </form>
+  <p id="formMessage" class="form-message"></p>
+  <p class="small form-note">Formularul poate fi conectat ulterior la Google Forms/Sheets pentru confirmări reale.</p>
+</section>
+</main>
+
+<footer>
+  <div class="number footer-number">18</div>
+  <p>VASILE</p>
+  <span>29.08.2026 · A NIGHT TO REMEMBER</span>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
