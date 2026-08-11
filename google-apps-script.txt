@@ -1,19 +1,1 @@
-function doPost(e) {
-  const SHEET_NAME = "RSVP";
-  const sheetFile = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = sheetFile.getSheetByName(SHEET_NAME) || sheetFile.insertSheet(SHEET_NAME);
 
-  if (sheet.getLastRow() === 0) {
-    sheet.appendRow(["Nume", "Participă", "Data confirmării"]);
-  }
-
-  sheet.appendRow([
-    e.parameter.name || "",
-    e.parameter.attendance || "",
-    e.parameter.timestamp || new Date().toLocaleString("ro-RO")
-  ]);
-
-  return ContentService
-    .createTextOutput(JSON.stringify({success:true}))
-    .setMimeType(ContentService.MimeType.JSON);
-}
