@@ -1,106 +1,14 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vasile — 18 | 29 August 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="noise"></div>
-
-<section class="hero">
-  <div class="hero-image"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="eyebrow">SAVE THE DATE</p>
-    <div class="number">18</div>
-    <p class="name">CATALIN</p>
-    <div class="gold-line"></div>
-    <p class="date">29 AUGUST 2026</p>
-    <button class="open-btn" onclick="document.querySelector('#invitation').scrollIntoView({behavior:'smooth'})">
-      DESCHIDE INVITAȚIA <span>↓</span>
-    </button>
-  </div>
-</section>
-
-<main id="invitation">
-<section class="photo-section section">
-  <div class="portrait">
-    <img src="poza-mea.jpg" alt="Vasile">
-  </div>
-  <div class="photo-caption">
-    <p class="eyebrow">DESPRE SĂRBĂTORIT</p>
-    <h1>18 ani.<br><em>Un nou capitol.</em></h1>
-  </div>
-</section>
-
-<section class="intro section">
-  <p class="eyebrow">THE CELEBRATION</p>
-  <h1>O seară de<br><em>neuitat.</em></h1>
-  <p class="lead">
-    După 18 ani de povești, oameni dragi și amintiri,
-    a venit momentul să sărbătorim împreună.
-  </p>
-  <p class="small">Te aștept să facem din seara asta o amintire de neuitat.</p>
-</section>
-
-<section class="countdown section">
-  <p class="eyebrow">COUNTDOWN</p>
-  <h2>Ne vedem în</h2>
-  <div class="timer">
-    <div><strong id="days">--</strong><span>ZILE</span></div>
-    <div><strong id="hours">--</strong><span>ORE</span></div>
-    <div><strong id="minutes">--</strong><span>MIN</span></div>
-    <div><strong id="seconds">--</strong><span>SEC</span></div>
-  </div>
-</section>
-
-<section class="details section">
-  <div class="detail-card">
-    <span class="icon">✦</span>
-    <p class="eyebrow">DATA</p>
-    <h3>29 August 2026</h3>
-  </div>
-  <div class="detail-card">
-    <span class="icon">◷</span>
-    <p class="eyebrow">ORA</p>
-    <h3>20:00</h3>
-  </div>
-  <div class="detail-card">
-    <span class="icon">⌖</span>
-    <p class="eyebrow">LOCAȚIA</p>
-    <h3>Strada Liliacului nr. 5</h3>
-    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Strada+Liliacului+nr+5" target="_blank" rel="noopener">DESCHIDE ÎN GOOGLE MAPS →</a>
-  </div>
-</section>
-
-<section class="rsvp section">
-  <p class="eyebrow">RSVP</p>
-  <h2>Vii să sărbătorim?</h2>
-  <p class="lead">Confirmă-ți prezența și hai să facem seara asta memorabilă.</p>
-  <form id="rsvpForm" onsubmit="submitRSVP(event)">
-    <input id="guestName" type="text" placeholder="Numele tău" autocomplete="name" required>
-    <select id="attendance" required>
-      <option value="" disabled selected>Alege o opțiune</option>
-      <option value="Da, abia aștept!">Da, abia aștept!</option>
-      <option value="Din păcate, nu pot ajunge">Din păcate, nu pot ajunge</option>
-    </select>
-    <button class="gold-btn" id="submitBtn" type="submit">CONFIRMĂ PREZENȚA</button>
-  </form>
-  <p id="formMessage" class="form-message"></p>
-  <p class="small form-note">Răspunsul tău este înregistrat automat.</p>
-</section>
-</main>
-
-<footer>
-  <div class="number footer-number">18</div>
-  <p>CATALIN</p>
-  <span>29.08.2026 · A NIGHT TO REMEMBER</span>
-</footer>
-<script src="script.js"></script>
-</body>
-</html>
+<!doctype html><html lang="ro"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Catalin — 18 | 29 August 2026</title><link rel="stylesheet" href="style.css"></head><body>
+<section class="hero"><div class="hero-photo"></div><div class="shade"></div><div class="hero-content"><p>SAVE THE DATE</p><div class="num">18</div><div class="name">CATALIN</div><div class="line"></div><div class="date">29 AUGUST 2026</div><button onclick="document.querySelector('#invite').scrollIntoView({behavior:'smooth'})">DESCHIDE INVITAȚIA ↓</button></div></section>
+<main id="invite">
+<section class="portrait"><div class="pic"><img src="poza-mea.jpg" alt="Catalin"></div><div><p>DESPRE SĂRBĂTORIT</p><h1>18 ani.<br><em>Un nou capitol.</em></h1></div></section>
+<section><p>THE CELEBRATION</p><h1>O seară de<br><em>neuitat.</em></h1><p class="lead">După 18 ani de povești, oameni dragi și amintiri, a venit momentul să sărbătorim împreună.</p></section>
+<section class="count"><p>COUNTDOWN</p><h2>Ne vedem în</h2><div class="timer"><b id="days">--</b><b id="hours">--</b><b id="minutes">--</b><b id="seconds">--</b></div><div class="labels"><span>ZILE</span><span>ORE</span><span>MIN</span><span>SEC</span></div></section>
+<section class="details"><div><small>DATA</small><h2>29 August 2026</h2></div><div><small>ORA</small><h2>20:00</h2></div><div><small>LOCAȚIA</small><h2>Strada Liliacului nr. 5</h2><a href="https://www.google.com/maps/search/?api=1&query=Strada+Liliacului+nr+5" target="_blank">DESCHIDE ÎN GOOGLE MAPS →</a></div></section>
+<section><p>RSVP</p><h1>Vii să sărbătorim?</h1><p class="lead">Confirmă-ți prezența și spune-mi dacă vei veni însoțit(ă).</p>
+<form id="rsvpForm"><input id="guestName" type="text" placeholder="Numele tău" required>
+<div class="choice-label">Vii la petrecere?</div><div class="choices"><label><input type="radio" name="attendance" value="DA" required><span>DA</span></label><label><input type="radio" name="attendance" value="NU"><span>NU</span></label></div>
+<div id="plusOneBox" class="conditional hidden"><div class="choice-label">Vei fi însoțit(ă) de încă o persoană?</div><div class="choices"><label><input type="radio" name="plusOne" value="DA"><span>DA</span></label><label><input type="radio" name="plusOne" value="NU"><span>NU</span></label></div></div>
+<div id="plusOneNameBox" class="conditional hidden"><input id="plusOneName" type="text" placeholder="Numele persoanei care te însoțește"></div>
+<button id="submitBtn" type="submit">CONFIRMĂ PREZENȚA</button></form><p id="msg"></p></section>
+</main><footer><div class="num">18</div><div>CATALIN</div><small>29.08.2026 · A NIGHT TO REMEMBER</small></footer><script src="script.js"></script></body></html>
