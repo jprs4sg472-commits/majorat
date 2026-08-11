@@ -1,4 +1,4 @@
-const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxfCDRtruPz5o5D3pEmB1iZjya_Cv7_kFIj5oywHEG2gYJmjkKwXCI-0B8d3rpMXoC0/exec";
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbyH1FCFniuoQtK7jAj5zGTCguW8hU3UVH-VZjR2irqLrNLXgrrWoaWS1HmSlBwoJlcN/exec";
 
 const target = new Date("2026-08-29T20:00:00+03:00").getTime();
 
