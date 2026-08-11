@@ -1,13 +1,9 @@
-const RSVP_ENDPOINT='https://script.google.com/macros/s/AKfycbwUctJIaoBF-9zq73uhefk0M_bppy2NdrX-7bHrfQxvWoiTcZVB60XjD_vfdTRR-Av8/exec';
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbxfCDRtruPz5o5D3pEmB1iZjya_Cv7_kFIj5oywHEG2gYJmjkKwXCI-0B8d3rpMXoC0/exec";
 const target=new Date("2026-08-29T20:00:00+03:00").getTime();
-function tick(){let x=Math.max(0,target-Date.now()),d=Math.floor(x/86400000);x%=86400000;let h=Math.floor(x/3600000);
-x%=3600000;let m=Math.floor(x/60000);x%=60000;let s=Math.floor(x/1000);days.textContent=String(d).padStart(2,"0");hours.textContent=String(h).padStart(2,"0");minutes.textContent=String(m).padStart(2,"0");seconds.textContent=String(s).padStart(2,"0")}tick();setInterval(tick,1000);
-document.getElementById("rsvpForm").addEventListener("submit",async e=>{e.preventDefault();
-let btn=document.getElementById("submitBtn"),msg=document.getElementById("msg"),data=new URLSearchParams();
-data.set("name",document.getElementById("guestName").value.trim());
-data.set("attendance",document.getElementById("attendance").value);
-data.set("timestamp",new Date().toLocaleString("ro-RO"));
-btn.disabled=true;btn.textContent="SE TRIMITE...";
-try{await fetch(RSVP_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:data.toString()});
-msg.textContent="Multumesc! Confirmarea ta a fost inregistrata. ðŸ¥‚";
-e.target.reset()}catch(err){msg.textContent="A aparut o problema. Verifica publicarea Google Apps Script si incearca din nou."}finally{btn.disabled=false;btn.textContent="CONFIRMÄ‚ PREZENÈšA"}});
+function tick(){let x=Math.max(0,target-Date.now()),d=Math.floor(x/86400000);x%=86400000;let h=Math.floor(x/3600000);x%=3600000;let m=Math.floor(x/60000);x%=60000;let s=Math.floor(x/1000);days.textContent=String(d).padStart(2,"0");hours.textContent=String(h).padStart(2,"0");minutes.textContent=String(m).padStart(2,"0");seconds.textContent=String(s).padStart(2,"0")}tick();setInterval(tick,1000);
+
+const plusOneBox=document.getElementById("plusOneBox"),plusOneNameBox=document.getElementById("plusOneNameBox"),plusOneName=document.getElementById("plusOneName");
+document.querySelectorAll('input[name="attendance"]').forEach(i=>i.addEventListener("change",()=>{const yes=i.value==="DA";plusOneBox.classList.toggle("hidden",!yes);plusOneNameBox.classList.add("hidden");plusOneName.required=false;document.querySelectorAll('input[name="plusOne"]').forEach(r=>r.checked=false);plusOneName.value=""}));
+document.querySelectorAll('input[name="plusOne"]').forEach(i=>i.addEventListener("change",()=>{const yes=i.value==="DA";plusOneNameBox.classList.toggle("hidden",!yes);plusOneName.required=yes;if(!yes)plusOneName.value=""}));
+
+document.getElementById("rsvpForm").addEventListener("submit",async e=>{e.preventDefault();const name=guestName.value.trim(),attendance=document.querySelector('input[name="attendance"]:checked')?.value,plusOne=attendance==="DA"?(document.querySelector('input[name="plusOne"]:checked')?.value||""):"",companion=plusOne==="DA"?plusOneName.value.trim():"",msg=document.getElementById("msg"),btn=document.getElementById("submitBtn");if(!attendance){msg.textContent="Alege DA sau NU.";return}if(attendance==="DA"&&!plusOne){msg.textContent="Spune-ne dacÄƒ vei fi Ã®nsoÈ›it(Äƒ).";return}if(plusOne==="DA"&&!companion){msg.textContent="Introdu numele persoanei care te Ã®nsoÈ›eÈ™te.";return}const data=new URLSearchParams({name,attendance,plusOne,companion,timestamp:new Date().toLocaleString("ro-RO")});btn.disabled=true;btn.textContent="SE TRIMITE...";try{await fetch(RSVP_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:data.toString()});msg.textContent="MulÈ›umesc! Confirmarea ta a fost Ã®nregistratÄƒ. ðŸ¥‚";e.target.reset();plusOneBox.classList.add("hidden");plusOneNameBox.classList.add("hidden");plusOneName.required=false}catch(err){msg.textContent="A apÄƒrut o problemÄƒ. Te rog Ã®ncearcÄƒ din nou."}finally{btn.disabled=false;btn.textContent="CONFIRMÄ‚ PREZENÈšA"}});
