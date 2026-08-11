@@ -1,4 +1,4 @@
-const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbyV2vPXCq12CZmNGdlTXjXQ1raFFq-C7p0o0WTe1aGFpc6SfOvMQx0O71EkdCHNrhM0/exec";
+const RSVP_ENDPOINT = "https://script.google.com/macros/s/AKfycbzzTSHWy6KUzbjkGu-D561n3D6bJTlIAGET-GXCHcZSa3vxZdul0-rZsLJqhPey6cv5/exec";
 const target=new Date("2026-08-29T20:00:00+03:00").getTime();
 function tick(){let x=Math.max(0,target-Date.now()),d=Math.floor(x/86400000);x%=86400000;let h=Math.floor(x/3600000);x%=3600000;let m=Math.floor(x/60000);x%=60000;let s=Math.floor(x/1000);days.textContent=String(d).padStart(2,"0");hours.textContent=String(h).padStart(2,"0");minutes.textContent=String(m).padStart(2,"0");seconds.textContent=String(s).padStart(2,"0")}tick();setInterval(tick,1000);
 
